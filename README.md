@@ -1,31 +1,33 @@
-# AI Fitness Assistant
+# 🧠 AI Fitness Assistant
 
-AI Fitness Assistant is an application that generates daily workout plans based on user data.
+**AI Fitness Assistant** is an application that generates personalized daily workout plans based on user data and AI analysis.
 
-## Technologies
-- React + TypeScript + Vite
-- Redux Toolkit
-- Ant Design
-- Axios
-- Framer Motion
-- Recharts
+## ⚙️ Technologies
+- **React + TypeScript + Vite**  
+- **Redux Toolkit**  
+- **Ant Design**  
+- **Axios**  
+- **Framer Motion**  
+- **Recharts**  
+- **Gemini AI (Google)**  
+- **Supabase (BaaS)**  
 
-## Features
-- User input for personal data: energy level, mood, available time
-- Generation of AI-based textual workout plans (simulated or via AI API)
-- Display of the plan in a UI component
-- Scalable structure for adding new AI services and features
+## 🚀 Features
+- User input for energy, mood, and available time  
+- AI-powered workout plan generation using **Gemini API**  
+- Interactive UI for displaying workout plans  
+- Data storage and management via **Supabase**  
+- Modular structure for easy scalability and feature expansion  
 
-## Installation
+## 📦 Installation
+git clone <https://github.com/npetdev/ai-fitness-assistant>
+cd ai-fitness-assistant
+npm install
+npm run dev
 
-    git clone <your-repo-url>
-    cd ai-fitness-assistant
-    npm install
-    npm run dev
 
 ## Project Structure
-
-    src/
+ src/
      ┣ components/           # Reusable UI components
      ┣ features/             # Redux slices by feature
      ┣ store/                # Redux store configuration
@@ -34,6 +36,6 @@ AI Fitness Assistant is an application that generates daily workout plans based 
      ┗ main.tsx
 
 ## Next Steps
-- Implement UserForm for collecting user data
-- Generate and display AI workout plans
-- Connect to real AI APIs (OpenAI, HuggingFace, or other services)
+- Add user progress tracking and workout history
+- Integrate additional AI services
+- Improve UI/UX and optimize performance
