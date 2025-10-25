@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Card, Spin } from "antd";
 import type { RootState, AppDispatch } from "../store/store";
 import { clearPlan } from "../features/aiPlan/aiPlanSlice";
+import { clearUserData } from "../features/user/userSlice";
 
 interface AiPlanDisplayProps {
   onReset: () => void;
@@ -14,7 +15,8 @@ export const AiPlanDisplay: React.FC<AiPlanDisplayProps> = ({ onReset }) => {
 
   const handleClear = () => {
     dispatch(clearPlan());
-    onReset(); // show form
+    dispatch(clearUserData());
+    onReset();
   };
 
   return (

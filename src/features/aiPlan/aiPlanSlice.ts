@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAiPlan } from "../../utils/api";
+import type { UserState } from "../../types";
 
 interface AiPlanState {
   plan: string | null;
@@ -13,7 +14,7 @@ const initialState: AiPlanState = {
 
 export const generateAiPlan = createAsyncThunk(
   "aiPlan/generate",
-  async (payload: { energy: number; mood: string; time: number }) => {
+  async (payload: UserState) => {
     return await fetchAiPlan(payload);
   }
 );
@@ -30,7 +31,10 @@ export const aiPlanSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(generateAiPlan.pending, (state) => { state.status = "loading"; })
-      .addCase(generateAiPlan.fulfilled, (state, action) => { state.plan = action.payload; state.status = "idle"; })
+      .addCase(generateAiPlan.fulfilled, (state, action) => {
+        state.plan = action.payload;
+        state.status = "idle";
+      })
       .addCase(generateAiPlan.rejected, (state) => { state.status = "failed"; });
   },
 });
