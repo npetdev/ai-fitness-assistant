@@ -205,7 +205,7 @@ export const UserForm: React.FC<UserFormProps> = ({ onPlanGenerated }) => {
 
         <Form.Item>
           <Button type="primary" htmlType="submit" block>
-            Save & Generate Plan
+            Generate Plan
           </Button>
         </Form.Item>
       </Form>

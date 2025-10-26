@@ -37,7 +37,7 @@ export const AiPlanDisplay: React.FC<AiPlanDisplayProps> = ({ onReset }) => {
         >
           {plan}
           <div style={{ marginTop: "1rem", textAlign: "center" }}>
-            <Button onClick={handleClear}>Back to Form</Button>
+            <Button onClick={handleClear}>Back to Home</Button>
           </div>
         </Card>
       )}

@@ -1,19 +1,19 @@
 import React, { useState } from "react";
+import "./styles/AppStyle.css";
 import { ConfigProvider, theme, Button, Layout, Typography } from "antd";
 import { useSelector } from "react-redux";
 import type { RootState } from "./store/store";
 import { UserForm } from "./components/UserForm";
 import { AiPlanDisplay } from "./components/AiPlanDisplay";
 
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 const { Title } = Typography;
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [showForm, setShowForm] = useState(true);
-
-  // AI plan loading status from Redux
   const aiPlanStatus = useSelector((state: RootState) => state.aiPlan.status);
+
   const toggleTheme = () => setDarkMode(!darkMode);
   const handlePlanGenerated = () => setShowForm(false);
   const handleReset = () => setShowForm(true);
@@ -28,7 +28,6 @@ const App: React.FC = () => {
         style={{
           minHeight: "100vh",
           background: darkMode ? "#141414" : "#fff",
-          padding: "2rem",
         }}
       >
         {/* Header */}
@@ -38,6 +37,9 @@ const App: React.FC = () => {
             flexDirection: "column",
             alignItems: "center",
             marginBottom: "3rem",
+            background: darkMode ? "#1f1f1f" : "#f0f2f5",
+            color: darkMode ? "#fff" : "#000",
+            borderTop: darkMode ? "1px solid #333" : "1px solid #ddd",
           }}
         >
           <Title
@@ -58,6 +60,7 @@ const App: React.FC = () => {
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
+            flex: 1,
           }}
         >
           {showForm ? (
@@ -65,11 +68,24 @@ const App: React.FC = () => {
           ) : (
             <AiPlanDisplay onReset={handleReset} />
           )}
-
           {aiPlanStatus === "loading" && (
             <div style={{ marginTop: "2rem" }}>Generating AI plan...</div>
           )}
         </Content>
+
+        {/* Footer */}
+        <Footer
+          style={{
+            textAlign: "center",
+            background: darkMode ? "#1f1f1f" : "#f0f2f5",
+            color: darkMode ? "#fff" : "#000",
+            borderTop: darkMode ? "1px solid #333" : "1px solid #ddd",
+            padding: "1rem",
+          }}
+        >
+          AI Fitness Assistant © {new Date().getFullYear()} | Built by Nebojsa
+          💪
+        </Footer>
       </Layout>
     </ConfigProvider>
   );
